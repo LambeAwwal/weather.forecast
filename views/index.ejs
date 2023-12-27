@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="public/styles.css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <title>1st Response Weather</title>
+</head>
+<style>
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-image: url('/images/weather image.jpg');
+      background-size: cover;
+    }
+
+    h1 {
+      color: #3498db;
+      text-align: center;
+      padding: 20px 0;
+      margin: 0;
+    }
+
+    .forecast {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px;
+    }
+
+    .day {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h2{
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    footer {
+      color: #3498db;
+      text-align: center;
+      padding: 10px;
+      bottom: 0;
+    }
+
+
+
+  @media screen and (max-width: 320px) {
+
+
+  
+  .forecast {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  }
+  @media screen and (max-width: 375px) {
+  .forecast {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  }
+  @media screen and (max-width:  425px) {
+  .forecast {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-direction: column;
+  }
+  }
+</style>
+<body>
+  <h1>1<sup>ST</sup> Response Weather</h1>
+  
+  <div class="forecast">
+    <% states.forEach(state => { %>
+      <div class="day">
+        <h2><%= state.state %></h2>
+       
+        
+        <!-- Display weather information -->
+        <p>Temperature: <%= state.weather.main ? Math.floor(state.weather.main.temp - 273) + '°C' : 'N/A' %></p>
+        <p>Condition: <%= state.weather.weather && state.weather.weather[0] ? state.weather.weather[0].description : 'N/A' %></p>
+      </div>
+    <% }); %>
+  </div>
+
+  <footer>
+    <p>Author: Lambe Awwal</p>
+  </footer>
+</body>
+</html>
